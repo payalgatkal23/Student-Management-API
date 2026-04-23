@@ -8,7 +8,7 @@ const PORT = 3000;
 mongoose
   .connect("mongodb://localhost:27017/crudapp")
   .then(() => {
-    console.log("Connected to MongoDB");
+    console.log("Connected to Mongo");
   })
   .catch((error) => {
     console.log("Error Connecting to MongoDB:", error);
