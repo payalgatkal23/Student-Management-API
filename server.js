@@ -18,14 +18,14 @@ app.use(express.json());
 
 //add
 app.post("/adduser", async (req, res) => {
-  res.send(newUser);
   const newUser = await student.create(req.body);
+  res.send(newUser);
 });
 
 //read
 app.get("/readuser", async (req, res) => {
-  res.send(read);
   const read = await student.find();
+   res.send(read);
 });
 
 //delete
