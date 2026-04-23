@@ -30,7 +30,6 @@ app.get("/readuser", async (req, res) => {
 
 //delete
 app.delete("/deleteuser/:name", async (req, res) => {
-  res.send(del);
   const del = await student.deleteOne({ name: req.params.name });
    res.send(del);
 });
