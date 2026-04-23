@@ -11,7 +11,7 @@ mongoose
     console.log("Connected to MongoDB");
   })
   .catch((error) => {
-    console.log(" Connecting to MongoDB:", error);
+    console.log("Error Connecting to MongoDB:", error);
   });
 
 app.use(express.json());
