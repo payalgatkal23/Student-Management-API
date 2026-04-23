@@ -44,5 +44,5 @@ app.put("/updateuser", async (req, res) => {
 });
 
 app.listen(3000, () => {
-  console.log(`server is running on port ${PORT}`);
+  console.log(`Server is running on port ${PORT}`);
 });
