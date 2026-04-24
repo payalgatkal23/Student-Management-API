@@ -63,11 +63,11 @@ app.put("/users/:id", async (req, res) => {
       new: true,
     });
     if (!up) {
-      return res.json("User not found");
+      return res.json({ message: "User not found" });
     }
     res.json(up);
   } catch (err) {
-    res.json("Error updating user");
+   res.json({ message: "Error updating user" });
   }
 });
 
