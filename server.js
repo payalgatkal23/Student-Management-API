@@ -20,9 +20,9 @@ app.use(express.json());
 app.post("/users", async (req, res) => {
   try{
   const newUser = await student.create(req.body); 
-  res.send(newUser);
+  res.json(newUser);
   }catch(err){
-    res.send("Error creating user");
+    res.json("Error creating user");
   }
 });
 
@@ -30,19 +30,19 @@ app.post("/users", async (req, res) => {
 app.get("/users", async (req, res) => {
   try{
   const read = await student.find();
-   res.send(read);
+   res.json(read);
 }catch(err){
-  res.send("Error fetching users");
+  res.json("Error fetching users");
 }
 });
 
 //delete
 app.delete("/users/:id", async (req, res) => {
   try{
-  const del = await student.findByIdAndDelete({ _id: req.params.id });
-   res.send(del);
+  const del = await student.findByIdAndDelete(req.params.id);
+   res.json(del);
 }catch(err){
-  res.send("Error deleting user");
+  res.json("Error deleting user");
 }
 });
 
@@ -50,13 +50,13 @@ app.delete("/users/:id", async (req, res) => {
 app.put("/users/:id", async (req, res) => {
   try{
   const up = await student.findByIdAndUpdate(
-    { _id: req.params.id },
-    { $set: req.body },
+    req.params.id,
+    req.body,
     { new: true }
   );
-  res.send(up);
+  res.json(up);
 }catch(err){
-  res.send("Error updating user");
+  res.json("Error updating user");
 }
 });
 
