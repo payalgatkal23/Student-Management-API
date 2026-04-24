@@ -52,11 +52,13 @@ app.put("/users/:id", async (req, res) => {
   const up = await student.findByIdAndUpdate(
     { _id: req.params.id },
     { $set: req.body },
+    { new: true }
   );
   res.send(up);
 }catch(err){
   res.send("Error updating user");
 }
+});
 
 app.listen(PORT, () => {
   console.log(`Server is Running on Port ${PORT}`);
