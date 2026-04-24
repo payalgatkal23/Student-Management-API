@@ -18,59 +18,57 @@ app.use(express.json());
 
 //add
 app.post("/users", async (req, res) => {
-  try{
-     if (!req.body.name) {
+  try {
+    if (!req.body.name) {
       return res.json({ message: "Name is required" });
     }
-  const newUser = await student.create(req.body); 
-  res.json(newUser);
-  }catch(err){
-   res.json({ message: "Error creating user" });
+    const newUser = await student.create(req.body);
+    res.json(newUser);
+  } catch (err) {
+    res.json({ message: "Error creating user" });
   }
 });
 
 //read
 app.get("/users", async (req, res) => {
-  try{
-  const read = await student.find();
-   res.json(read);
-}catch(err){
-  res.json({ message: "Error fetching users" });
-}
+  try {
+    const read = await student.find();
+    res.json(read);
+  } catch (err) {
+    res.json({ message: "Error fetching users" });
+  }
 });
 
 //delete
 app.delete("/users/:id", async (req, res) => {
-  try{
-  const del = await student.findByIdAndDelete(req.params.id);
-  if (!del) {
-  return res.json("User not found");
+  try {
+    const del = await student.findByIdAndDelete(req.params.id);
+    if (!del) {
+      return res.json({ message: "User not found" });
+    }
+    res.json(del);
+  } catch (err) {
+    res.json({ message: "Error deleting user" });
   }
-   res.json(del);
-}catch(err){
-  res.json("Error deleting user");
-}
 });
 
 //update
 app.put("/users/:id", async (req, res) => {
-  try{
-     if (!req.body.name) {
+  try {
+    if (!req.body.name) {
       return res.json({ message: "Name is required" });
     }
 
-  const up = await student.findByIdAndUpdate(
-    req.params.id,
-    req.body,
-    { new: true }
-  );
-  if(!up){
-    return res.json("User not found");
+    const up = await student.findByIdAndUpdate(req.params.id, req.body, {
+      new: true,
+    });
+    if (!up) {
+      return res.json("User not found");
+    }
+    res.json(up);
+  } catch (err) {
+    res.json("Error updating user");
   }
-  res.json(up);
-}catch(err){
-  res.json("Error updating user");
-}
 });
 
 app.listen(PORT, () => {
