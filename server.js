@@ -48,12 +48,15 @@ app.delete("/users/:id", async (req, res) => {
 
 //update
 app.put("/users/:id", async (req, res) => {
+  try{
   const up = await student.updateOne(
     { _id: req.params.id },
     { $set: req.body },
   );
   res.send(up);
-});
+}catch(err){
+  res.send("Error updating user");
+}
 
 app.listen(PORT, () => {
   console.log(`Server is Running on Port ${PORT}`);
