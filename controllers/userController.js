@@ -13,7 +13,6 @@ exports.createUser = async (req, res) => {
   }
 };
 
-
 exports.getUsers = async (req, res) => {
   try {
     const users = await User.find();
@@ -22,7 +21,6 @@ exports.getUsers = async (req, res) => {
     res.json({ message: "Error fetching users" });
   }
 };
-
 
 exports.deleteUser = async (req, res) => {
   try {
@@ -38,18 +36,15 @@ exports.deleteUser = async (req, res) => {
   }
 };
 
-
 exports.updateUser = async (req, res) => {
   try {
     if (!req.body.name) {
       return res.json({ message: "Name is required" });
     }
 
-    const user = await User.findByIdAndUpdate(
-      req.params.id,
-      req.body,
-      { new: true }
-    );
+    const user = await User.findByIdAndUpdate(req.params.id, req.body, {
+      new: true,
+    });
 
     if (!user) {
       return res.json({ message: "User not found" });
