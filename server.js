@@ -16,60 +16,9 @@ mongoose
 
 app.use(express.json());
 
-//add
-app.post("/users", async (req, res) => {
-  try {
-    if (!req.body.name) {
-      return res.json({ message: "Name is required" });
-    }
-    const newUser = await User.create(req.body);
-    res.json(newUser);
-  } catch (err) {
-    res.json({ message: "Error creating user" });
-  }
-});
 
-//read
-app.get("/users", async (req, res) => {
-  try {
-    const read = await User.find();
-    res.json(read);
-  } catch (err) {
-    res.json({ message: "Error fetching users" });
-  }
-});
 
-//delete
-app.delete("/users/:id", async (req, res) => {
-  try {
-    const del = await User.findByIdAndDelete(req.params.id);
-    if (!del) {
-      return res.json({ message: "User not found" });
-    }
-    res.json(del);
-  } catch (err) {
-    res.json({ message: "Error deleting user" });
-  }
-});
 
-//update
-app.put("/users/:id", async (req, res) => {
-  try {
-    if (!req.body.name) {
-      return res.json({ message: "Name is required" });
-    }
-
-    const up = await User.findByIdAndUpdate(req.params.id, req.body, {
-      new: true,
-    });
-    if (!up) {
-      return res.json({ message: "User not found" });
-    }
-    res.json(up);
-  } catch (err) {
-   res.json({ message: "Error updating user" });
-  }
-});
 
 app.listen(PORT, () => {
   console.log(`Server is Running on Port ${PORT}`);
