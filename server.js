@@ -31,9 +31,6 @@ app.get("/users", async (req, res) => {
   try{
   const read = await student.find();
    res.json(read);
-   if(!read){
-    res.json("No users found");
-   }
 }catch(err){
   res.json("Error fetching users");
 }
@@ -44,9 +41,6 @@ app.delete("/users/:id", async (req, res) => {
   try{
   const del = await student.findByIdAndDelete(req.params.id);
    res.json(del);
-   if(!del){
-    res.json("User not found");
-   }
 }catch(err){
   res.json("Error deleting user");
 }
@@ -61,9 +55,6 @@ app.put("/users/:id", async (req, res) => {
     { new: true }
   );
   res.json(up);
-  if(!up){
-    res.json("User not found");
-  }
 }catch(err){
   res.json("Error updating user");
 }
