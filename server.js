@@ -39,7 +39,7 @@ app.get("/users", async (req, res) => {
 //delete
 app.delete("/users/:id", async (req, res) => {
   try{
-  const del = await student.deleteOne({ _id: req.params.id });
+  const del = await student.findByIdAndDelete({ _id: req.params.id });
    res.send(del);
 }catch(err){
   res.send("Error deleting user");
@@ -49,7 +49,7 @@ app.delete("/users/:id", async (req, res) => {
 //update
 app.put("/users/:id", async (req, res) => {
   try{
-  const up = await student.updateOne(
+  const up = await student.findByIdAndUpdate(
     { _id: req.params.id },
     { $set: req.body },
   );
