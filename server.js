@@ -18,8 +18,12 @@ app.use(express.json());
 
 //add
 app.post("/adduser", async (req, res) => {
-  const newUser = await student.create(req.body);
+  try{
+  const newUser = await student.create(req.body); 
   res.send(newUser);
+  }catch(err){
+    res.send("Error creating user");
+  }
 });
 
 //read
