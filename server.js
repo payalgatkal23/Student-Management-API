@@ -19,6 +19,9 @@ app.use(express.json());
 //add
 app.post("/users", async (req, res) => {
   try{
+     if (!req.body.name) {
+      return res.json({ message: "Name is required" });
+    }
   const newUser = await student.create(req.body); 
   res.json(newUser);
   }catch(err){
