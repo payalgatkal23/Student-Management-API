@@ -31,6 +31,9 @@ app.get("/users", async (req, res) => {
   try{
   const read = await student.find();
    res.json(read);
+   if(!read){
+    res.json("No users found");
+   }
 }catch(err){
   res.json("Error fetching users");
 }
