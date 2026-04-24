@@ -25,7 +25,7 @@ app.post("/users", async (req, res) => {
   const newUser = await student.create(req.body); 
   res.json(newUser);
   }catch(err){
-    res.json("Error creating user");
+   res.json({ message: "Error creating user" });
   }
 });
 
@@ -35,7 +35,7 @@ app.get("/users", async (req, res) => {
   const read = await student.find();
    res.json(read);
 }catch(err){
-  res.json("Error fetching users");
+  res.json({ message: "Error fetching users" });
 }
 });
 
