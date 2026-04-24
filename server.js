@@ -1,6 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const student = require("./models/user");
+const User = require("./models/user");
 
 const app = express();
 const PORT = 3000;
@@ -22,7 +22,7 @@ app.post("/users", async (req, res) => {
     if (!req.body.name) {
       return res.json({ message: "Name is required" });
     }
-    const newUser = await student.create(req.body);
+    const newUser = await User.create(req.body);
     res.json(newUser);
   } catch (err) {
     res.json({ message: "Error creating user" });
@@ -32,7 +32,7 @@ app.post("/users", async (req, res) => {
 //read
 app.get("/users", async (req, res) => {
   try {
-    const read = await student.find();
+    const read = await User.find();
     res.json(read);
   } catch (err) {
     res.json({ message: "Error fetching users" });
@@ -42,7 +42,7 @@ app.get("/users", async (req, res) => {
 //delete
 app.delete("/users/:id", async (req, res) => {
   try {
-    const del = await student.findByIdAndDelete(req.params.id);
+    const del = await User.findByIdAndDelete(req.params.id);
     if (!del) {
       return res.json({ message: "User not found" });
     }
@@ -59,7 +59,7 @@ app.put("/users/:id", async (req, res) => {
       return res.json({ message: "Name is required" });
     }
 
-    const up = await student.findByIdAndUpdate(req.params.id, req.body, {
+    const up = await User.findByIdAndUpdate(req.params.id, req.body, {
       new: true,
     });
     if (!up) {

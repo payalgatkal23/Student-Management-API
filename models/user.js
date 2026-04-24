@@ -5,7 +5,10 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  age: Number,
+  age:  {
+    type: Number,
+    min: 0,
+  },
   course: String,
 });
 
