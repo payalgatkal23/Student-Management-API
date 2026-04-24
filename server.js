@@ -44,6 +44,9 @@ app.delete("/users/:id", async (req, res) => {
   try{
   const del = await student.findByIdAndDelete(req.params.id);
    res.json(del);
+   if(!del){
+    res.json("User not found");
+   }
 }catch(err){
   res.json("Error deleting user");
 }
