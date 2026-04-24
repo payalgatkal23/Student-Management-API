@@ -17,7 +17,7 @@ mongoose
 app.use(express.json());
 
 //add
-app.post("/adduser", async (req, res) => {
+app.post("/users", async (req, res) => {
   try{
   const newUser = await student.create(req.body); 
   res.send(newUser);
@@ -27,19 +27,23 @@ app.post("/adduser", async (req, res) => {
 });
 
 //read
-app.get("/readuser", async (req, res) => {
+app.get("/users", async (req, res) => {
+  try{
   const read = await student.find();
    res.send(read);
+}catch(err){
+  res.send("Error fetching users");
+}
 });
 
 //delete
-app.delete("/deleteuser/:id", async (req, res) => {
+app.delete("/users/:id", async (req, res) => {
   const del = await student.deleteOne({ _id: req.params.id });
    res.send(del);
 });
 
 //update
-app.put("/updateuser/:id", async (req, res) => {
+app.put("/users/:id", async (req, res) => {
   const up = await student.updateOne(
     { _id: req.params.id },
     { $set: req.body },
