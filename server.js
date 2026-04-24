@@ -33,15 +33,15 @@ app.get("/readuser", async (req, res) => {
 });
 
 //delete
-app.delete("/deleteuser/:name", async (req, res) => {
-  const del = await student.deleteOne({ name: req.params.name });
+app.delete("/deleteuser/:id", async (req, res) => {
+  const del = await student.deleteOne({ _id: req.params.id });
    res.send(del);
 });
 
 //update
-app.put("/updateuser", async (req, res) => {
+app.put("/updateuser/:id", async (req, res) => {
   const up = await student.updateOne(
-    { name: req.body.name },
+    { _id: req.params.id },
     { $set: req.body },
   );
   res.send(up);
