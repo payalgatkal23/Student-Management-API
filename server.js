@@ -38,8 +38,12 @@ app.get("/users", async (req, res) => {
 
 //delete
 app.delete("/users/:id", async (req, res) => {
+  try{
   const del = await student.deleteOne({ _id: req.params.id });
    res.send(del);
+}catch(err){
+  res.send("Error deleting user");
+}
 });
 
 //update
