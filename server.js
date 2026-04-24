@@ -40,6 +40,9 @@ app.get("/users", async (req, res) => {
 app.delete("/users/:id", async (req, res) => {
   try{
   const del = await student.findByIdAndDelete(req.params.id);
+  if (!del) {
+  return res.json("User not found");
+  }
    res.json(del);
 }catch(err){
   res.json("Error deleting user");
