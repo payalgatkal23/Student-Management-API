@@ -55,6 +55,10 @@ app.delete("/users/:id", async (req, res) => {
 //update
 app.put("/users/:id", async (req, res) => {
   try{
+     if (!req.body.name) {
+      return res.json({ message: "Name is required" });
+    }
+
   const up = await student.findByIdAndUpdate(
     req.params.id,
     req.body,
