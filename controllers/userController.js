@@ -38,10 +38,7 @@ exports.deleteUser = async (req, res) => {
 
 exports.updateUser = async (req, res) => {
   try {
-    if (!req.body.name) {
-      return res.json({ message: "Name is required" });
-    }
-
+    
     const user = await User.findByIdAndUpdate(req.params.id, req.body, {
       new: true,
     });
