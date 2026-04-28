@@ -7,6 +7,7 @@ const userSchema = new mongoose.Schema({
   },
   age: {
     type: Number,
+    min:0
   },
   course: String,
 });
