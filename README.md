@@ -76,8 +76,8 @@ Make sure MongoDB is running locally.
 
 ```json
 {
-  "name": "John Doe",
-  "email": "john@example.com"
+  "name": "payal Gatkal",
+  "email": "payalGatkal@example.com"
 }
 ```
 
@@ -87,24 +87,3 @@ Make sure MongoDB is running locally.
 
 **Payal Gatkal**
 GitHub: https://github.com/payalgatkal23
-
-## API Endpoints
-
-| Method | Endpoint   | Description        |
-| ------ | ---------- | ------------------ |
-| POST   | /users     | create new student |
-| GET    | /users     | Get all student    |
-| PUT    | /users/:id | Update student     |
-| DELETE | /users/:id | Delete student     |
-
-## Run Project
-
-```bash
-npm install
-node server.js
-
-## Author
-
-Payal Gatkal
-GitHub: [payalgatkal23](https://github.com/payalgatkal23)
-```
