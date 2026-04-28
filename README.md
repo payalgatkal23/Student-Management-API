@@ -6,22 +6,22 @@ A RESTful API built using Node.js, Express, and MongoDB that allows managing stu
 
 ## 🚀 Features
 
-* Create a new student
-* Fetch all students
-* Update student details
-* Delete a student
-* Input validation for request data
-* Centralized error handling
-* Structured using MVC pattern
+- Create a new student
+- Fetch all students
+- Update student details
+- Delete a student
+- Input validation for request data
+- Centralized error handling
+- Structured using MVC pattern
 
 ---
 
 ## 🛠️ Tech Stack
 
-* Node.js
-* Express.js
-* MongoDB
-* Mongoose
+- Node.js
+- Express.js
+- MongoDB
+- Mongoose
 
 ---
 
@@ -33,7 +33,6 @@ project/
 ├── models/        # Schema definitions
 ├── controllers/   # Business logic
 ├── routes/        # API routes
-├── config/        # Database connection
 └── server.js      # Entry point
 ```
 
@@ -42,7 +41,7 @@ project/
 ## 🔗 API Endpoints
 
 | Method | Endpoint      | Description        |
-| ------ | --------------| ------------------ |
+| ------ | ------------- | ------------------ |
 | POST   | /students     | Create new student |
 | GET    | /students     | Get all students   |
 | PUT    | /students/:id | Update student     |
@@ -63,12 +62,12 @@ Make sure MongoDB is running locally.
 
 ## 📌 Key Concepts Used
 
-* REST API design
-* MVC architecture
-* CRUD operations
-* Middleware usage
-* Error handling
-* MongoDB data modeling
+- REST API design
+- MVC architecture
+- CRUD operations
+- Middleware usage
+- Error handling
+- MongoDB data modeling
 
 ---
 
@@ -80,6 +79,7 @@ Make sure MongoDB is running locally.
   "email": "payalGatkal@example.com"
 }
 ```
+
 ---
 
 ## 🚧 Future Improvements

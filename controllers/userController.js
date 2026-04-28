@@ -13,7 +13,7 @@ exports.createStudent = async (req, res) => {
   }
 };
 
-exports.getStudents = async (req, res) => {
+exports.getStudent = async (req, res) => {
   try {
     const users = await User.find();
     res.json(users);
@@ -38,7 +38,6 @@ exports.deleteStudent = async (req, res) => {
 
 exports.updateStudent = async (req, res) => {
   try {
-    
     const user = await User.findByIdAndUpdate(req.params.id, req.body, {
       new: true,
     });
