@@ -41,12 +41,12 @@ project/
 
 ## 🔗 API Endpoints
 
-| Method | Endpoint   | Description        |
-| ------ | ---------- | ------------------ |
-| POST   | /users     | Create new student |
-| GET    | /users     | Get all students   |
-| PUT    | /users/:id | Update student     |
-| DELETE | /users/:id | Delete student     |
+| Method | Endpoint      | Description        |
+| ------ | --------------| ------------------ |
+| POST   | /students     | Create new student |
+| GET    | /students     | Get all students   |
+| PUT    | /students/:id | Update student     |
+| DELETE | /students/:id | Delete student     |
 
 ---
 
@@ -72,7 +72,7 @@ Make sure MongoDB is running locally.
 
 ---
 
-## 📷 Sample Request (POST /users)
+## 📷 Sample Request (POST /students)
 
 ```json
 {

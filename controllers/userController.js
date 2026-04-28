@@ -1,6 +1,6 @@
 const User = require("../models/user");
 
-exports.createUser = async (req, res) => {
+exports.createStudent = async (req, res) => {
   try {
     if (!req.body.name) {
       return res.json({ message: "Name is required" });
@@ -9,34 +9,34 @@ exports.createUser = async (req, res) => {
     const user = await User.create(req.body);
     res.json(user);
   } catch (err) {
-    res.json({ message: "Error creating user" });
+    res.json({ message: "Error creating student" });
   }
 };
 
-exports.getUsers = async (req, res) => {
+exports.getStudents = async (req, res) => {
   try {
     const users = await User.find();
     res.json(users);
   } catch (err) {
-    res.json({ message: "Error fetching users" });
+    res.json({ message: "Error fetching students" });
   }
 };
 
-exports.deleteUser = async (req, res) => {
+exports.deleteStudent = async (req, res) => {
   try {
     const user = await User.findByIdAndDelete(req.params.id);
 
     if (!user) {
-      return res.json({ message: "User not found" });
+      return res.json({ message: "Student not found" });
     }
 
     res.json(user);
   } catch (err) {
-    res.json({ message: "Error deleting user" });
+    res.json({ message: "Error deleting student" });
   }
 };
 
-exports.updateUser = async (req, res) => {
+exports.updateStudent = async (req, res) => {
   try {
     
     const user = await User.findByIdAndUpdate(req.params.id, req.body, {
@@ -44,11 +44,11 @@ exports.updateUser = async (req, res) => {
     });
 
     if (!user) {
-      return res.json({ message: "User not found" });
+      return res.json({ message: "Student not found" });
     }
 
     res.json(user);
   } catch (err) {
-    res.json({ message: "Error updating user" });
+    res.json({ message: "Error updating student" });
   }
 };
