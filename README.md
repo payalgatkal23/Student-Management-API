@@ -80,6 +80,12 @@ Make sure MongoDB is running locally.
   "email": "payalGatkal@example.com"
 }
 ```
+## 🚧 Future Improvements
+
+- Add authentication using JWT
+- Implement pagination for handling large datasets
+- Improve API responses with proper HTTP status codes
+- Deploy the API on cloud platforms such as Render or AWS
 
 ---
 
